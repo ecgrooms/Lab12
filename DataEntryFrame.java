@@ -156,6 +156,7 @@ public class DataEntryFrame extends JFrame
 
 		// TODO: add in all form-fillable components:
 		JPanel formFill = new JPanel(new GridLayout(8, 2));
+		
 		// TODO: add to panel...
 		this.add(formFill);
 		formFill.add(firstNameInfo);
@@ -307,7 +308,6 @@ public class DataEntryFrame extends JFrame
 				
 				File file = fileChooser.getSelectedFile();
 				try (FileWriter fw = new FileWriter(fileChooser.getSelectedFile()+".txt")){
-					//fw.write(filename.toString());
 					fw.close();
 				}
 				catch(Exception ex){
