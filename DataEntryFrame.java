@@ -99,6 +99,33 @@ public class DataEntryFrame extends JFrame
 	private void setVisuals(FormData data)
 	{
 		// TODO: set the text fields and the signature as corresponding to the fields in FormData.
+		String firstN = data.getFirstName();
+		firstName.setText(firstN);
+		
+		char mN = data.getMiddleInitial();
+		String m = Character.toString(mN);
+		middleInitial.setText(m);
+		
+		String lastN = data.getLastName();
+		lastName.setText(lastN);
+		
+		String displayN = data.getDisplayName();
+		displayName.setText(displayN);
+		
+		String ssn = data.getSSN();
+		SSN.setText(ssn);
+		
+		String phoneNum = data.getPhone();
+		phone.setText(phoneNum);
+		
+		String emailA = data.getEmail();
+		email.setText(emailA);
+		
+		String a = data.getAddress();
+		address.setText(a);
+		
+		List<Point> sign = data.getSignature();
+		spanel.setSignature(sign);
 		
 	}
 
@@ -187,7 +214,8 @@ public class DataEntryFrame extends JFrame
 
 			// TODO: use the JTextFields and the signature panel to set the values
 			// of the selected FormData object.
-			//
+			FormData textData = new FormData();
+			textData.setValues(firstName.getText(), middleInitial.getText().charAt(0), lastName.getText(), displayName.getText(), SSN.getText(), phone.getText(), email.getText(), address.getText(), spanel.getSignature());
 
 			this.setVisuals(datalist.get(select));
 			DefaultComboBoxModel<String> newComboBoxModel = getComboBoxModel(datalist);
@@ -195,12 +223,12 @@ public class DataEntryFrame extends JFrame
 			formSelect.setSelectedIndex(select);
 
 			// TODO: display an error message if setting the values failed. Else, display a success message.w
-//			if() {
-//				errorField.setText("Form Information failed to update!");
-//			}
-//			else {
-//				errorField.setText("Form Information successfully updated!");
-//			}
+			try{
+				errorField.setText("Form Information successfully updated!");
+			}
+			catch(Exception ex){
+				errorField.setText("Form Information failed to update!");
+			}
 		});
 
 		JButton resetForm = new JButton("Reset");
