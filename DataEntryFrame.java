@@ -214,7 +214,7 @@ public class DataEntryFrame extends JFrame
 
 			// TODO: use the JTextFields and the signature panel to set the values
 			// of the selected FormData object.
-			FormData textData = new FormData();
+			FormData textData = datalist.get(select);
 			textData.setValues(firstName.getText(), middleInitial.getText().charAt(0), lastName.getText(), displayName.getText(), SSN.getText(), phone.getText(), email.getText(), address.getText(), spanel.getSignature());
 
 			this.setVisuals(datalist.get(select));
@@ -235,7 +235,7 @@ public class DataEntryFrame extends JFrame
 		resetForm.addActionListener((e) -> {
 			int select = formSelect.getSelectedIndex();
 			// TODO: reset the values on the selected form data
-			
+			datalist.get(select).reset();
 			
 			this.setVisuals(datalist.get(select));
 			
