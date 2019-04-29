@@ -215,14 +215,15 @@ public class DataEntryFrame extends JFrame
 			// TODO: use the JTextFields and the signature panel to set the values
 			// of the selected FormData object.
 			FormData textData = datalist.get(select);
-			textData.setValues(firstName.getText(), middleInitial.getText().charAt(0), lastName.getText(), displayName.getText(), SSN.getText(), phone.getText(), email.getText(), address.getText(), spanel.getSignature());
+			textData.setValues(firstName.getText(), middleInitial.getText().charAt(0), lastName.getText(), displayName.getText(), SSN.getText(),
+					phone.getText(), email.getText(), address.getText(), spanel.getSignature());
 
 			this.setVisuals(datalist.get(select));
 			DefaultComboBoxModel<String> newComboBoxModel = getComboBoxModel(datalist);
 			formSelect.setModel(newComboBoxModel);
 			formSelect.setSelectedIndex(select);
 
-			// TODO: display an error message if setting the values failed. Else, display a success message.w
+			// TODO: display an error message if setting the values failed. Else, display a success message.
 			try{
 				errorField.setText("Form Information successfully updated!");
 			}
