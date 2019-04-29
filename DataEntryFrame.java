@@ -235,8 +235,10 @@ public class DataEntryFrame extends JFrame
 		resetForm.addActionListener((e) -> {
 			int select = formSelect.getSelectedIndex();
 			// TODO: reset the values on the selected form data
+			
+			
 			this.setVisuals(datalist.get(select));
-			//formdata reset();
+			
 		});
 
 		// TODO: add buttons to panel and add to frame
